@@ -1,24 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import car from "../assets/car.png";
 
 export default function Car() {
-  const [result, setResult] = useState("0.00");
-
-  function calculateInstallment(event) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const price = Number(form.get("price"));
-    const annualRate = Number(form.get("interest")) / 100;
-    const downPaymentRate = Number(form.get("downPayment")) / 100;
-    const months = Number(form.get("months"));
-    const loan = price - price * downPaymentRate;
-    const totalInterest = loan * annualRate * (months / 12);
-    const monthlyPayment = (loan + totalInterest) / months;
-
-    setResult(Number.isFinite(monthlyPayment) ? monthlyPayment.toFixed(2) : null);
-  }
-
   return (
     <main className="calculator-page car-page">
       <section className="calculator car">
@@ -26,7 +9,7 @@ export default function Car() {
         <p className="subtitle">คำนวณ Car Installment</p>
         <img className="calculator-icon" src={car} alt="" />
 
-        <form onSubmit={calculateInstallment} onReset={() => setResult("0.00")}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <label className="field">
             ชื่อผู้คำนวณ
             <input type="text" name="customer" />
@@ -65,7 +48,7 @@ export default function Car() {
         </form>
 
         <p className="result" role="status">
-          {result === null ? "กรุณาตรวจสอบค่าที่กรอก" : `ผ่อนชำระต่อเดือนละ ${result} บาท`}
+          ผ่อนชำระต่อเดือนละ <strong>0.00</strong> บาท
         </p>
         <Link className="back" to="/">กลับหน้าหลัก</Link>
       </section>
