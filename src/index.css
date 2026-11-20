@@ -2,7 +2,267 @@
 @import "tailwindcss";
 
 body {
-  font-family: "Kanit", sans-serif;
   background: #f1f2f4;
-  color: #1e293b;
+  color: #172232;
+  font-family: "Kanit", sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home {
+  flex: 1;
+  padding: clamp(48px, 19vh, 164px) 20px 48px;
+  text-align: center;
+}
+
+.home-icon {
+  width: 120px;
+  margin: 0 auto 8px;
+}
+
+.home h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home > p,
+.menu-card p,
+.subtitle {
+  color: #5f6670;
+}
+
+.home > p {
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 40px auto 0;
+  max-width: 1000px;
+}
+
+.menu-card {
+  width: 312px;
+  max-width: 100%;
+  padding: 24px 16px;
+  background: white;
+  border-radius: 22px;
+  box-shadow: 0 5px 9px #00000012;
+}
+
+.menu-card:hover {
+  box-shadow: 0 8px 16px #00000020;
+}
+
+.menu-card img {
+  width: 216px;
+  height: 216px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+}
+
+.menu-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.menu-card p {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.calculator-page {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: white;
+}
+
+.car-page {
+  place-items: start center;
+  padding-top: 16px;
+  background: #f1f2f4;
+}
+
+.calculator {
+  width: 100%;
+  max-width: 720px;
+  padding: 24px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 16px 34px #00000025;
+}
+
+.bmi {
+  max-width: 540px;
+  padding-top: 36px;
+}
+
+.car {
+  border-radius: 10px;
+}
+
+.calculator h1,
+.subtitle,
+.result {
+  text-align: center;
+}
+
+.calculator h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.bmr h1 {
+  font-size: 24px;
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.calculator-icon {
+  width: 216px;
+  height: 216px;
+  object-fit: contain;
+  margin: 16px auto 20px;
+}
+
+.bmi .calculator-icon {
+  width: 80px;
+  height: 80px;
+  margin: 18px auto;
+}
+
+.car .calculator-icon {
+  width: 232px;
+  margin: 12px auto 20px;
+}
+
+.calculator form {
+  display: grid;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.field {
+  display: grid;
+  gap: 4px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 35px;
+  padding: 5px 12px;
+  border: 1px solid #d7dbe1;
+  border-radius: 5px;
+  background: white;
+}
+
+.bmr .field input {
+  border-color: #f1f2f4;
+  box-shadow: 0 1px 3px #0000000b;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.choices label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gender {
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.bmi .actions {
+  flex-direction: column;
+}
+
+.actions button,
+.back {
+  flex: 1;
+  padding: 10px;
+  border-radius: 7px;
+  background: #e1e4e8;
+  box-shadow: 0 2px 5px #00000014;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.actions .primary {
+  background: #155dfb;
+  color: white;
+}
+
+.bmr .primary {
+  background: #5035f5;
+}
+
+.bmr .danger {
+  background: #ff233b;
+  color: white;
+}
+
+.car button[type="reset"] {
+  background: #d1d5dc;
+}
+
+.result {
+  margin: 18px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bmi .result strong {
+  color: #155dfb;
+}
+
+.bmr .result strong {
+  color: #5035f5;
+}
+
+.back {
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    padding: 20px;
+  }
+
+  .calculator h1 {
+    font-size: 24px;
+  }
+
+  .menu {
+    margin-top: 24px;
+  }
 }

@@ -1,47 +1,36 @@
-import calculate from "./../assets/calculate.png";
-import CardMenu from "./../components/CardMenu";
-import bmi from "./../assets/bmi.png";
-import bmr from "./../assets/bmr.png";
-import car from "./../assets/car.png";
+import calculate from "../assets/calculate.png";
+import bmi from "../assets/bmi.png";
+import bmr from "../assets/bmr.png";
+import car from "../assets/car.png";
+import CardMenu from "../components/CardMenu";
 
 export default function Home() {
   return (
-    <>
-      {/* ส่วนแสดงรูป */}
-      <div className="flex justify-center mt-30">
-        <img src={calculate} alt="calculate" className="w-30" />
-      </div>
+    <main className="home">
+      <img className="home-icon" src={calculate} alt="" />
+      <h1>เครื่องมือคำนวณออนไลน์</h1>
+      <p>เลือกการคำนวณที่คุณต้องการจากรายการด้านล่าง</p>
 
-      {/* ส่วนแสดงชื่อแอป */}
-      <div className="flex flex-col items-center mt-8">
-        <p className="font-kanit text-3xl font-bold text-blue-700">
-          เครื่องมือคำนวณออนไลน์
-        </p>
-        <p className="font-itim text-xl text-blue-500">
-          เลือกการคำนวณที่คุณต้องการจากเมนูด้านล่าง
-        </p>
-      </div>
-
-      {/* ส่วนของแสดง CardMenu ที่สร้างไว้ */}
-      <div className="flex justify-center mt-15 gap-5">
+      <div className="menu">
         <CardMenu
-          showTitle="BMI (ดัชนี้มวลกาย)"
+          showTitle="BMI (ดัชนีมวลกาย)"
           showPic={bmi}
-          showDetail="คำนวณค่าน้ำหนักของคุณว่าเหมาะสมกับส่วนสูงหรือไม่"
+          showDetail="คำนวณว่าน้ำหนักของคุณเหมาะสมกับส่วนสูงหรือไม่"
+          path="/bmi"
         />
-
         <CardMenu
-          showTitle="MBR (อัตราเผาผลาญ)"
+          showTitle="BMR (อัตราการเผาผลาญ)"
           showPic={bmr}
-          showDetail="คำนวณอัตราการเผาผลาญที่ร่างกายต้องการ"
+          showDetail="คำนวณพลังงานที่ร่างกายต้องการในแต่ละวัน"
+          path="/bmr"
         />
-
         <CardMenu
           showTitle="การผ่อนชำระรถยนต์"
           showPic={car}
-          showDetail="คำนวณการผ่อนชำระรถยนต์ต่อเดือน"
+          showDetail="คำนวณยอดผ่อนต่อเดือนและดอกเบี้ยรถยนต์"
+          path="/carinstallment"
         />
       </div>
-    </>
+    </main>
   );
 }
